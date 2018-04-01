@@ -4,9 +4,7 @@ image_resource:
   source:
     repository: getourneau/alpine-bash-git
     tag: 'latest'
+inputs:
+  - name: hello
 run:
-  path: bash
-  args:
-  - -c
-  - |
-    echo "Hello World"
+  path: ./hello/hello.sh
