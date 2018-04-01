@@ -15,4 +15,14 @@ jobs:
   - get: hello
     trigger: true # Resourceに変更があれば自動でジョブを実行するかどうか
   - task: run-hello
-    file: ./hello/hello.yml
+    platform: linux
+    image_resource:
+      type: docker-image
+      source:
+        repository: getourneau/alpine-bash-git
+    run:
+      path: sh
+      args:
+      - -exc
+      - |
+        whoami
